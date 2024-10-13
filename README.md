@@ -25,7 +25,9 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
 
-const client = new TrainTravelFrictionAnalysis();
+const client = new TrainTravelFrictionAnalysis({
+  accessToken: process.env['ACCESS_TOKEN'], // This is the default and can be omitted
+});
 
 async function main() {
   const booking = await client.bookings.create();
@@ -44,7 +46,9 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
 
-const client = new TrainTravelFrictionAnalysis();
+const client = new TrainTravelFrictionAnalysis({
+  accessToken: process.env['ACCESS_TOKEN'], // This is the default and can be omitted
+});
 
 async function main() {
   const booking: TrainTravelFrictionAnalysis.Booking = await client.bookings.create();
@@ -104,9 +108,6 @@ You can use the `maxRetries` option to configure or disable this:
 // Configure the default for all requests:
 const client = new TrainTravelFrictionAnalysis({
   maxRetries: 0, // default is 2
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
-  accessToken: 'My Access Token',
 });
 
 // Or, configure per-request:
@@ -124,9 +125,6 @@ Requests time out after 1 minute by default. You can configure this with a `time
 // Configure the default for all requests:
 const client = new TrainTravelFrictionAnalysis({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
-  accessToken: 'My Access Token',
 });
 
 // Override per-request:
@@ -258,9 +256,6 @@ import { HttpsProxyAgent } from 'https-proxy-agent';
 // Configure the default for all requests:
 const client = new TrainTravelFrictionAnalysis({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
-  clientId: 'My Client ID',
-  clientSecret: 'My Client Secret',
-  accessToken: 'My Access Token',
 });
 
 // Override per-request:
