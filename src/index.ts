@@ -8,16 +8,6 @@ import * as API from './resources/index';
 
 export interface ClientOptions {
   /**
-   * The client identifier issued during registration.
-   */
-  clientId?: string | undefined;
-
-  /**
-   * The client secret issued during registration.
-   */
-  clientSecret?: string | undefined;
-
-  /**
    * The access token for accessing the API endpoints.
    */
   accessToken?: string | undefined;
@@ -83,8 +73,6 @@ export interface ClientOptions {
  * API Client for interfacing with the Train Travel Friction Analysis API.
  */
 export class TrainTravelFrictionAnalysis extends Core.APIClient {
-  clientId: string;
-  clientSecret: string;
   accessToken: string;
 
   private _options: ClientOptions;
@@ -92,8 +80,6 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
   /**
    * API Client for interfacing with the Train Travel Friction Analysis API.
    *
-   * @param {string | undefined} [opts.clientId=process.env['CLIENT_ID'] ?? undefined]
-   * @param {string | undefined} [opts.clientSecret=process.env['CLIENT_SECRET'] ?? undefined]
    * @param {string | undefined} [opts.accessToken=process.env['ACCESS_TOKEN'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['TRAIN_TRAVEL_FRICTION_ANALYSIS_BASE_URL'] ?? https://api.example.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
@@ -105,21 +91,9 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
    */
   constructor({
     baseURL = Core.readEnv('TRAIN_TRAVEL_FRICTION_ANALYSIS_BASE_URL'),
-    clientId = Core.readEnv('CLIENT_ID'),
-    clientSecret = Core.readEnv('CLIENT_SECRET'),
     accessToken = Core.readEnv('ACCESS_TOKEN'),
     ...opts
   }: ClientOptions = {}) {
-    if (clientId === undefined) {
-      throw new Errors.TrainTravelFrictionAnalysisError(
-        "The CLIENT_ID environment variable is missing or empty; either provide it, or instantiate the TrainTravelFrictionAnalysis client with an clientId option, like new TrainTravelFrictionAnalysis({ clientId: 'My Client ID' }).",
-      );
-    }
-    if (clientSecret === undefined) {
-      throw new Errors.TrainTravelFrictionAnalysisError(
-        "The CLIENT_SECRET environment variable is missing or empty; either provide it, or instantiate the TrainTravelFrictionAnalysis client with an clientSecret option, like new TrainTravelFrictionAnalysis({ clientSecret: 'My Client Secret' }).",
-      );
-    }
     if (accessToken === undefined) {
       throw new Errors.TrainTravelFrictionAnalysisError(
         "The ACCESS_TOKEN environment variable is missing or empty; either provide it, or instantiate the TrainTravelFrictionAnalysis client with an accessToken option, like new TrainTravelFrictionAnalysis({ accessToken: 'My Access Token' }).",
@@ -127,8 +101,6 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
     }
 
     const options: ClientOptions = {
-      clientId,
-      clientSecret,
       accessToken,
       ...opts,
       baseURL: baseURL || `https://api.example.com`,
@@ -144,8 +116,6 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
 
     this._options = options;
 
-    this.clientId = clientId;
-    this.clientSecret = clientSecret;
     this.accessToken = accessToken;
   }
 
@@ -162,6 +132,10 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.accessToken}` };
   }
 
   static TrainTravelFrictionAnalysis = this;
