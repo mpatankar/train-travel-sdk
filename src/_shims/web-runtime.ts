@@ -9,9 +9,9 @@ export function getRuntime({ manuallyImported }: { manuallyImported?: boolean } 
   const recommendation =
     manuallyImported ?
       `You may need to use polyfills`
-    : `Add one of these imports before your first \`import … from 'train-travel-friction-analysis'\`:
-- \`import 'train-travel-friction-analysis/shims/node'\` (if you're running on Node)
-- \`import 'train-travel-friction-analysis/shims/web'\` (otherwise)
+    : `Add one of these imports before your first \`import … from 'train-travel-friction-analysis-demo'\`:
+- \`import 'train-travel-friction-analysis-demo/shims/node'\` (if you're running on Node)
+- \`import 'train-travel-friction-analysis-demo/shims/web'\` (otherwise)
 `;
 
   let _fetch, _Request, _Response, _Headers;

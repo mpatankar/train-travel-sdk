@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^train-travel-friction-analysis$': '<rootDir>/src/index.ts',
-    '^train-travel-friction-analysis/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^train-travel-friction-analysis/(.*)$': '<rootDir>/src/$1',
+    '^train-travel-friction-analysis-demo$': '<rootDir>/src/index.ts',
+    '^train-travel-friction-analysis-demo/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^train-travel-friction-analysis-demo/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

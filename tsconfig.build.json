@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "train-travel-friction-analysis/*": ["dist/src/*"],
-      "train-travel-friction-analysis": ["dist/src/index.ts"],
+      "train-travel-friction-analysis-demo/*": ["dist/src/*"],
+      "train-travel-friction-analysis-demo": ["dist/src/index.ts"],
     },
     "noEmit": false,
     "declaration": true,
