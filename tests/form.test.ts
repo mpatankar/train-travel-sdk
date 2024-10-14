@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'train-travel-friction-analysis/core';
-import { Blob } from 'train-travel-friction-analysis/_shims/index';
-import { toFile } from 'train-travel-friction-analysis';
+import { multipartFormRequestOptions, createForm } from 'train-travel-friction-analysis-demo/core';
+import { Blob } from 'train-travel-friction-analysis-demo/_shims/index';
+import { toFile } from 'train-travel-friction-analysis-demo';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

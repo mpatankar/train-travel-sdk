@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'train-travel-friction-analysis/shims/node'
- *   import 'train-travel-friction-analysis/shims/web'
+ *   import 'train-travel-friction-analysis-demo/shims/node'
+ *   import 'train-travel-friction-analysis-demo/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */

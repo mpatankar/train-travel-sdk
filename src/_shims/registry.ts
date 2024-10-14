@@ -42,12 +42,12 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'train-travel-friction-analysis/shims/${shims.kind}'\` before importing anything else from train-travel-friction-analysis`,
+      `you must \`import 'train-travel-friction-analysis-demo/shims/${shims.kind}'\` before importing anything else from train-travel-friction-analysis-demo`,
     );
   }
   if (kind) {
     throw new Error(
-      `can't \`import 'train-travel-friction-analysis/shims/${shims.kind}'\` after \`import 'train-travel-friction-analysis/shims/${kind}'\``,
+      `can't \`import 'train-travel-friction-analysis-demo/shims/${shims.kind}'\` after \`import 'train-travel-friction-analysis-demo/shims/${kind}'\``,
     );
   }
   auto = options.auto;
