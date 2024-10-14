@@ -6,7 +6,13 @@ export {
   BookingListResponse,
   BookingCreateParams,
   BookingPaymentParams,
+  BookingListResponsesPageNumberURLPagination,
   Bookings,
 } from './bookings';
-export { StationListResponse, StationListParams, Stations } from './stations';
-export { TripListResponse, TripListParams, Trips } from './trips';
+export {
+  StationListResponse,
+  StationListParams,
+  StationListResponsesPageNumberURLPagination,
+  Stations,
+} from './stations';
+export { TripListResponse, TripListParams, TripListResponsesPageNumberURLPagination, Trips } from './trips';

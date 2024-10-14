@@ -4,6 +4,7 @@ import * as Errors from './error';
 import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Pagination from './pagination';
 import * as API from './resources/index';
 
 export interface ClientOptions {
@@ -181,18 +182,24 @@ export import fileFromPath = Uploads.fileFromPath;
 export namespace TrainTravelFrictionAnalysis {
   export import RequestOptions = Core.RequestOptions;
 
+  export import PageNumberURLPagination = Pagination.PageNumberURLPagination;
+  export import PageNumberURLPaginationResponse = Pagination.PageNumberURLPaginationResponse;
+
   export import Stations = API.Stations;
   export import StationListResponse = API.StationListResponse;
+  export import StationListResponsesPageNumberURLPagination = API.StationListResponsesPageNumberURLPagination;
   export import StationListParams = API.StationListParams;
 
   export import Trips = API.Trips;
   export import TripListResponse = API.TripListResponse;
+  export import TripListResponsesPageNumberURLPagination = API.TripListResponsesPageNumberURLPagination;
   export import TripListParams = API.TripListParams;
 
   export import Bookings = API.Bookings;
   export import Booking = API.Booking;
   export import BookingPayment = API.BookingPayment;
   export import BookingListResponse = API.BookingListResponse;
+  export import BookingListResponsesPageNumberURLPagination = API.BookingListResponsesPageNumberURLPagination;
   export import BookingCreateParams = API.BookingCreateParams;
   export import BookingPaymentParams = API.BookingPaymentParams;
 }

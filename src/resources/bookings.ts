@@ -3,6 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as BookingsAPI from './bookings';
+import { PageNumberURLPagination } from '../pagination';
 
 export class Bookings extends APIResource {
   /**
@@ -23,8 +24,10 @@ export class Bookings extends APIResource {
   /**
    * Returns a list of all trip bookings by the authenticated user.
    */
-  list(options?: Core.RequestOptions): Core.APIPromise<BookingListResponse> {
-    return this._client.get('/bookings', options);
+  list(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<BookingListResponsesPageNumberURLPagination, BookingListResponse> {
+    return this._client.getAPIList('/bookings', BookingListResponsesPageNumberURLPagination, options);
   }
 
   /**
@@ -49,6 +52,8 @@ export class Bookings extends APIResource {
     return this._client.post(`/bookings/${bookingId}/payment`, { body, ...options });
   }
 }
+
+export class BookingListResponsesPageNumberURLPagination extends PageNumberURLPagination<BookingListResponse> {}
 
 export interface Booking {
   /**
@@ -184,48 +189,29 @@ export namespace BookingPayment {
 
 export interface BookingListResponse {
   /**
-   * The wrapper for a collection is an array of objects.
+   * Unique identifier for the booking
    */
-  data?: Array<BookingListResponse.Data>;
+  id?: string;
 
-  links?: BookingListResponse.Links;
-}
+  /**
+   * Indicates whether the passenger has a bicycle.
+   */
+  has_bicycle?: boolean;
 
-export namespace BookingListResponse {
-  export interface Data {
-    /**
-     * Unique identifier for the booking
-     */
-    id?: string;
+  /**
+   * Indicates whether the passenger has a dog.
+   */
+  has_dog?: boolean;
 
-    /**
-     * Indicates whether the passenger has a bicycle.
-     */
-    has_bicycle?: boolean;
+  /**
+   * Name of the passenger
+   */
+  passenger_name?: string;
 
-    /**
-     * Indicates whether the passenger has a dog.
-     */
-    has_dog?: boolean;
-
-    /**
-     * Name of the passenger
-     */
-    passenger_name?: string;
-
-    /**
-     * Identifier of the booked trip
-     */
-    trip_id?: string;
-  }
-
-  export interface Links {
-    next?: string;
-
-    prev?: string;
-
-    self?: string;
-  }
+  /**
+   * Identifier of the booked trip
+   */
+  trip_id?: string;
 }
 
 export interface BookingCreateParams {
@@ -357,6 +343,7 @@ export namespace Bookings {
   export import Booking = BookingsAPI.Booking;
   export import BookingPayment = BookingsAPI.BookingPayment;
   export import BookingListResponse = BookingsAPI.BookingListResponse;
+  export import BookingListResponsesPageNumberURLPagination = BookingsAPI.BookingListResponsesPageNumberURLPagination;
   export import BookingCreateParams = BookingsAPI.BookingCreateParams;
   export import BookingPaymentParams = BookingsAPI.BookingPaymentParams;
 }
