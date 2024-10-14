@@ -9,9 +9,9 @@ export function getRuntime({ manuallyImported }: { manuallyImported?: boolean } 
   const recommendation =
     manuallyImported ?
       `You may need to use polyfills`
-    : `Add one of these imports before your first \`import … from 'train-travel-friction-analysis'\`:
-- \`import 'train-travel-friction-analysis/shims/node'\` (if you're running on Node)
-- \`import 'train-travel-friction-analysis/shims/web'\` (otherwise)
+    : `Add one of these imports before your first \`import … from 'train-travel-friction-analysis-demo'\`:
+- \`import 'train-travel-friction-analysis-demo/shims/node'\` (if you're running on Node)
+- \`import 'train-travel-friction-analysis-demo/shims/web'\` (otherwise)
 `;
 
   let _fetch, _Request, _Response, _Headers;
@@ -95,7 +95,7 @@ export function getRuntime({ manuallyImported }: { manuallyImported?: boolean } 
     getDefaultAgent: (url: string) => undefined,
     fileFromPath: () => {
       throw new Error(
-        'The `fileFromPath` function is only supported in Node. See the README for more details: https://www.github.com/stainless-sdks/train-travel-friction-analysis-node#file-uploads',
+        'The `fileFromPath` function is only supported in Node. See the README for more details: https://www.github.com/mpatankar/train-travel-sdk#file-uploads',
       );
     },
     isFsReadStream: (value: any) => false,

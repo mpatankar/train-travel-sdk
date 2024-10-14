@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'train-travel-friction-analysis/core';
-import { Headers } from 'train-travel-friction-analysis/_shims/index';
+import { createResponseHeaders } from 'train-travel-friction-analysis-demo/core';
+import { Headers } from 'train-travel-friction-analysis-demo/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
-import { APIUserAbortError } from 'train-travel-friction-analysis';
-import { Headers } from 'train-travel-friction-analysis/core';
+import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis-demo';
+import { APIUserAbortError } from 'train-travel-friction-analysis-demo';
+import { Headers } from 'train-travel-friction-analysis-demo/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
 
 describe('instantiate client', () => {

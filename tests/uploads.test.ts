@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'train-travel-friction-analysis/uploads';
-import { File } from 'train-travel-friction-analysis/_shims/index';
+import { toFile, type ResponseLike } from 'train-travel-friction-analysis-demo/uploads';
+import { File } from 'train-travel-friction-analysis-demo/_shims/index';
 
 class MyClass {
   name: string = 'foo';

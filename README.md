@@ -1,6 +1,6 @@
 # Train Travel Friction Analysis Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/train-travel-friction-analysis.svg)](https://npmjs.org/package/train-travel-friction-analysis) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/train-travel-friction-analysis)
+[![NPM version](https://img.shields.io/npm/v/train-travel-friction-analysis-demo.svg)](https://npmjs.org/package/train-travel-friction-analysis-demo) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/train-travel-friction-analysis-demo)
 
 This library provides convenient access to the Train Travel Friction Analysis REST API from server-side TypeScript or JavaScript.
 
@@ -11,11 +11,8 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/train-travel-friction-analysis-node.git
+npm install train-travel-friction-analysis-demo
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install train-travel-friction-analysis`
 
 ## Usage
 
@@ -23,7 +20,7 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
+import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis-demo';
 
 const client = new TrainTravelFrictionAnalysis({
   accessToken: process.env['ACCESS_TOKEN'], // This is the default and can be omitted
@@ -44,7 +41,7 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
+import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis-demo';
 
 const client = new TrainTravelFrictionAnalysis({
   accessToken: process.env['ACCESS_TOKEN'], // This is the default and can be omitted
@@ -244,12 +241,12 @@ add the following import before your first import `from "TrainTravelFrictionAnal
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import 'train-travel-friction-analysis/shims/web';
-import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
+import 'train-travel-friction-analysis-demo/shims/web';
+import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis-demo';
 ```
 
-To do the inverse, add `import "train-travel-friction-analysis/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/stainless-sdks/train-travel-friction-analysis-node/tree/main/src/_shims#readme)).
+To do the inverse, add `import "train-travel-friction-analysis-demo/shims/node"` (which does import polyfills).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/mpatankar/train-travel-sdk/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
 
@@ -258,7 +255,7 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
+import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis-demo';
 
 const client = new TrainTravelFrictionAnalysis({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
@@ -305,7 +302,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/train-travel-friction-analysis-node/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/mpatankar/train-travel-sdk/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

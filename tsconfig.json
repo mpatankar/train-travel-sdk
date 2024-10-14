@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "train-travel-friction-analysis/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "train-travel-friction-analysis/*": ["src/*"],
-      "train-travel-friction-analysis": ["src/index.ts"],
+      "train-travel-friction-analysis-demo/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "train-travel-friction-analysis-demo/*": ["src/*"],
+      "train-travel-friction-analysis-demo": ["src/index.ts"],
     },
     "noEmit": true,
 
