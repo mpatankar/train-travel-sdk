@@ -1,6 +1,6 @@
 {
   "name": "train-travel-friction-analysis",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Train Travel Friction Analysis API",
   "author": "Train Travel Friction Analysis <support@example.com>",
   "types": "dist/index.d.ts",
