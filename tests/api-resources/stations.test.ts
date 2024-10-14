@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis';
+import TrainTravelFrictionAnalysis from 'train-travel-friction-analysis-demo';
 import { Response } from 'node-fetch';
 
 const client = new TrainTravelFrictionAnalysis({

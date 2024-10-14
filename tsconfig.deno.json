@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "train-travel-friction-analysis/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "train-travel-friction-analysis/*": ["deno/*"],
-      "train-travel-friction-analysis": ["deno/index.ts"],
+      "train-travel-friction-analysis-demo/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "train-travel-friction-analysis-demo/*": ["deno/*"],
+      "train-travel-friction-analysis-demo": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,

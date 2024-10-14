@@ -55,12 +55,12 @@ $ cd train-travel-sdk
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link train-travel-friction-analysis
+$ yarn link train-travel-friction-analysis-demo
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global train-travel-friction-analysis
+$ pnpm link -—global train-travel-friction-analysis-demo
 ```
 
 ## Running tests
