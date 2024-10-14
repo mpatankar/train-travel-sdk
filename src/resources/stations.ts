@@ -4,56 +4,61 @@ import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
 import * as StationsAPI from './stations';
+import { PageNumberURLPagination } from '../pagination';
 
 export class Stations extends APIResource {
   /**
    * Returns a paginated and searchable list of all train stations.
    */
-  list(query?: StationListParams, options?: Core.RequestOptions): Core.APIPromise<StationListResponse>;
-  list(options?: Core.RequestOptions): Core.APIPromise<StationListResponse>;
+  list(
+    query?: StationListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<StationListResponsesPageNumberURLPagination, StationListResponse>;
+  list(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<StationListResponsesPageNumberURLPagination, StationListResponse>;
   list(
     query: StationListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
-  ): Core.APIPromise<StationListResponse> {
+  ): Core.PagePromise<StationListResponsesPageNumberURLPagination, StationListResponse> {
     if (isRequestOptions(query)) {
       return this.list({}, query);
     }
-    return this._client.get('/stations', { query, ...options });
+    return this._client.getAPIList('/stations', StationListResponsesPageNumberURLPagination, {
+      query,
+      ...options,
+    });
   }
 }
+
+export class StationListResponsesPageNumberURLPagination extends PageNumberURLPagination<StationListResponse> {}
 
 export interface StationListResponse {
-  data?: Array<StationListResponse.Data>;
-}
+  /**
+   * Unique identifier for the station.
+   */
+  id: string;
 
-export namespace StationListResponse {
-  export interface Data {
-    /**
-     * Unique identifier for the station.
-     */
-    id: string;
+  /**
+   * The address of the station.
+   */
+  address: string;
 
-    /**
-     * The address of the station.
-     */
-    address: string;
+  /**
+   * The country code of the station.
+   */
+  country_code: string;
 
-    /**
-     * The country code of the station.
-     */
-    country_code: string;
+  /**
+   * The name of the station
+   */
+  name: string;
 
-    /**
-     * The name of the station
-     */
-    name: string;
-
-    /**
-     * The timezone of the station in the
-     * [IANA Time Zone Database format](https://www.iana.org/time-zones).
-     */
-    timezone?: string;
-  }
+  /**
+   * The timezone of the station in the
+   * [IANA Time Zone Database format](https://www.iana.org/time-zones).
+   */
+  timezone?: string;
 }
 
 export interface StationListParams {
@@ -76,5 +81,6 @@ export interface StationListParams {
 
 export namespace Stations {
   export import StationListResponse = StationsAPI.StationListResponse;
+  export import StationListResponsesPageNumberURLPagination = StationsAPI.StationListResponsesPageNumberURLPagination;
   export import StationListParams = StationsAPI.StationListParams;
 }

@@ -3,6 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as TripsAPI from './trips';
+import { PageNumberURLPagination } from '../pagination';
 
 export class Trips extends APIResource {
   /**
@@ -10,75 +11,61 @@ export class Trips extends APIResource {
    * destination stations on the given date, and allows for filtering by bicycle and
    * dog allowances.
    */
-  list(query: TripListParams, options?: Core.RequestOptions): Core.APIPromise<TripListResponse> {
-    return this._client.get('/trips', { query, ...options });
+  list(
+    query: TripListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<TripListResponsesPageNumberURLPagination, TripListResponse> {
+    return this._client.getAPIList('/trips', TripListResponsesPageNumberURLPagination, { query, ...options });
   }
 }
+
+export class TripListResponsesPageNumberURLPagination extends PageNumberURLPagination<TripListResponse> {}
 
 export interface TripListResponse {
   /**
-   * The wrapper for a collection is an array of objects.
+   * Unique identifier for the trip
    */
-  data?: Array<TripListResponse.Data>;
+  id?: string;
 
-  links?: TripListResponse.Links;
-}
+  /**
+   * The date and time when the trip arrives
+   */
+  arrival_time?: string;
 
-export namespace TripListResponse {
-  export interface Data {
-    /**
-     * Unique identifier for the trip
-     */
-    id?: string;
+  /**
+   * Indicates whether bicycles are allowed on the trip
+   */
+  bicycles_allowed?: boolean;
 
-    /**
-     * The date and time when the trip arrives
-     */
-    arrival_time?: string;
+  /**
+   * The date and time when the trip departs
+   */
+  departure_time?: string;
 
-    /**
-     * Indicates whether bicycles are allowed on the trip
-     */
-    bicycles_allowed?: boolean;
+  /**
+   * The destination station of the trip
+   */
+  destination?: string;
 
-    /**
-     * The date and time when the trip departs
-     */
-    departure_time?: string;
+  /**
+   * Indicates whether dogs are allowed on the trip
+   */
+  dogs_allowed?: boolean;
 
-    /**
-     * The destination station of the trip
-     */
-    destination?: string;
+  /**
+   * The name of the operator of the trip
+   */
+  operator?: string;
 
-    /**
-     * Indicates whether dogs are allowed on the trip
-     */
-    dogs_allowed?: boolean;
+  /**
+   * The starting station of the trip
+   */
+  origin?: string;
 
-    /**
-     * The name of the operator of the trip
-     */
-    operator?: string;
-
-    /**
-     * The starting station of the trip
-     */
-    origin?: string;
-
-    /**
-     * The cost of the trip
-     */
-    price?: number;
-  }
-
-  export interface Links {
-    next?: string;
-
-    prev?: string;
-
-    self?: string;
-  }
+  /**
+   * The cost of the trip
+   */
+  price?: number;
 }
 
 export interface TripListParams {
@@ -115,5 +102,6 @@ export interface TripListParams {
 
 export namespace Trips {
   export import TripListResponse = TripsAPI.TripListResponse;
+  export import TripListResponsesPageNumberURLPagination = TripsAPI.TripListResponsesPageNumberURLPagination;
   export import TripListParams = TripsAPI.TripListParams;
 }

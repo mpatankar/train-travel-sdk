@@ -137,6 +137,37 @@ On timeout, an `APIConnectionTimeoutError` is thrown.
 
 Note that requests which time out will be [retried twice by default](#retries).
 
+## Auto-pagination
+
+List methods in the TrainTravelFrictionAnalysis API are paginated.
+You can use `for await … of` syntax to iterate through items across all pages:
+
+```ts
+async function fetchAllStations(params) {
+  const allStations = [];
+  // Automatically fetches more pages as needed.
+  for await (const stationListResponse of client.stations.list()) {
+    allStations.push(stationListResponse);
+  }
+  return allStations;
+}
+```
+
+Alternatively, you can make request a single page at a time:
+
+```ts
+let page = await client.stations.list();
+for (const stationListResponse of page.data) {
+  console.log(stationListResponse);
+}
+
+// Convenience methods are provided for manually paginating:
+while (page.hasNextPage()) {
+  page = page.getNextPage();
+  // ...
+}
+```
+
 ## Advanced Usage
 
 ### Accessing raw Response data (e.g., headers)
