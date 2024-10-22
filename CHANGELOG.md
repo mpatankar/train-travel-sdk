@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.2 (2024-10-22)
+
+Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/mpatankar/train-travel-sdk/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
+
+### Features
+
+* **api:** api update ([#6](https://github.com/mpatankar/train-travel-sdk/issues/6)) ([ae66eac](https://github.com/mpatankar/train-travel-sdk/commit/ae66eace0ec42f22419a12ec656c130ce8ec88bc))
+
 ## 0.1.0-alpha.1 (2024-10-14)
 
 Full Changelog: [v0.0.1-alpha.0...v0.1.0-alpha.1](https://github.com/mpatankar/train-travel-sdk/compare/v0.0.1-alpha.0...v0.1.0-alpha.1)
