@@ -1,9 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
 import { APIResource } from '../resource';
+import { isRequestOptions } from '../core';
 import * as Core from '../core';
 import * as BookingsAPI from './bookings';
-import { PageNumberURLPagination } from '../pagination';
+import { PageNumberURLPagination, type PageNumberURLPaginationParams } from '../pagination';
 
 export class Bookings extends APIResource {
   /**
@@ -25,9 +26,23 @@ export class Bookings extends APIResource {
    * Returns a list of all trip bookings by the authenticated user.
    */
   list(
+    query?: BookingListParams,
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<BookingListResponsesPageNumberURLPagination, BookingListResponse>;
+  list(
+    options?: Core.RequestOptions,
+  ): Core.PagePromise<BookingListResponsesPageNumberURLPagination, BookingListResponse>;
+  list(
+    query: BookingListParams | Core.RequestOptions = {},
     options?: Core.RequestOptions,
   ): Core.PagePromise<BookingListResponsesPageNumberURLPagination, BookingListResponse> {
-    return this._client.getAPIList('/bookings', BookingListResponsesPageNumberURLPagination, options);
+    if (isRequestOptions(query)) {
+      return this.list({}, query);
+    }
+    return this._client.getAPIList('/bookings', BookingListResponsesPageNumberURLPagination, {
+      query,
+      ...options,
+    });
   }
 
   /**
@@ -236,6 +251,8 @@ export interface BookingCreateParams {
   trip_id?: string;
 }
 
+export interface BookingListParams extends PageNumberURLPaginationParams {}
+
 export interface BookingPaymentParams {
   /**
    * Amount intended to be collected by this payment. A positive decimal figure
@@ -345,5 +362,6 @@ export namespace Bookings {
   export import BookingListResponse = BookingsAPI.BookingListResponse;
   export import BookingListResponsesPageNumberURLPagination = BookingsAPI.BookingListResponsesPageNumberURLPagination;
   export import BookingCreateParams = BookingsAPI.BookingCreateParams;
+  export import BookingListParams = BookingsAPI.BookingListParams;
   export import BookingPaymentParams = BookingsAPI.BookingPaymentParams;
 }

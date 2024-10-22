@@ -56,6 +56,13 @@ describe('resource bookings', () => {
     );
   });
 
+  test('list: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.bookings.list({ page: 0 }, { path: '/_stainless_unknown_path' })).rejects.toThrow(
+      TrainTravelFrictionAnalysis.NotFoundError,
+    );
+  });
+
   test('delete', async () => {
     const responsePromise = client.bookings.delete('1725ff48-ab45-4bb5-9d02-88745177dedb');
     const rawResponse = await responsePromise.asResponse();

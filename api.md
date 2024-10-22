@@ -30,6 +30,6 @@ Methods:
 
 - <code title="post /bookings">client.bookings.<a href="./src/resources/bookings.ts">create</a>({ ...params }) -> Booking</code>
 - <code title="get /bookings/{bookingId}">client.bookings.<a href="./src/resources/bookings.ts">retrieve</a>(bookingId) -> Booking</code>
-- <code title="get /bookings">client.bookings.<a href="./src/resources/bookings.ts">list</a>() -> BookingListResponsesPageNumberURLPagination</code>
+- <code title="get /bookings">client.bookings.<a href="./src/resources/bookings.ts">list</a>({ ...params }) -> BookingListResponsesPageNumberURLPagination</code>
 - <code title="delete /bookings/{bookingId}">client.bookings.<a href="./src/resources/bookings.ts">delete</a>(bookingId) -> void</code>
 - <code title="post /bookings/{bookingId}/payment">client.bookings.<a href="./src/resources/bookings.ts">payment</a>(bookingId, { ...params }) -> BookingPayment</code>
