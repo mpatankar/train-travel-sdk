@@ -11,7 +11,15 @@ export interface PageNumberURLPaginationResponse<Item> {
 export namespace PageNumberURLPaginationResponse {
   export interface Links {
     next?: string;
+
+    prev?: string;
+
+    self?: string;
   }
+}
+
+export interface PageNumberURLPaginationParams {
+  page?: number;
 }
 
 export class PageNumberURLPagination<Item>
