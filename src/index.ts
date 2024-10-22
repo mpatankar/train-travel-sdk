@@ -183,6 +183,7 @@ export namespace TrainTravelFrictionAnalysis {
   export import RequestOptions = Core.RequestOptions;
 
   export import PageNumberURLPagination = Pagination.PageNumberURLPagination;
+  export import PageNumberURLPaginationParams = Pagination.PageNumberURLPaginationParams;
   export import PageNumberURLPaginationResponse = Pagination.PageNumberURLPaginationResponse;
 
   export import Stations = API.Stations;
@@ -201,6 +202,7 @@ export namespace TrainTravelFrictionAnalysis {
   export import BookingListResponse = API.BookingListResponse;
   export import BookingListResponsesPageNumberURLPagination = API.BookingListResponsesPageNumberURLPagination;
   export import BookingCreateParams = API.BookingCreateParams;
+  export import BookingListParams = API.BookingListParams;
   export import BookingPaymentParams = API.BookingPaymentParams;
 }
 

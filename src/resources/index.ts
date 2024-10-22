@@ -5,6 +5,7 @@ export {
   BookingPayment,
   BookingListResponse,
   BookingCreateParams,
+  BookingListParams,
   BookingPaymentParams,
   BookingListResponsesPageNumberURLPagination,
   Bookings,

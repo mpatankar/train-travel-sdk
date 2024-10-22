@@ -4,7 +4,7 @@ import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
 import * as StationsAPI from './stations';
-import { PageNumberURLPagination } from '../pagination';
+import { PageNumberURLPagination, type PageNumberURLPaginationParams } from '../pagination';
 
 export class Stations extends APIResource {
   /**
@@ -61,17 +61,12 @@ export interface StationListResponse {
   timezone?: string;
 }
 
-export interface StationListParams {
+export interface StationListParams extends PageNumberURLPaginationParams {
   /**
    * The latitude and longitude of the user's location, to narrow down the search
    * results to sites within a proximity of this location.
    */
   coordinates?: string;
-
-  /**
-   * The page number to return
-   */
-  page?: number;
 
   /**
    * A search term to filter the list of stations by name or address.
