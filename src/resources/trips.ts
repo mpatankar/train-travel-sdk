@@ -3,7 +3,7 @@
 import { APIResource } from '../resource';
 import * as Core from '../core';
 import * as TripsAPI from './trips';
-import { PageNumberURLPagination } from '../pagination';
+import { PageNumberURLPagination, type PageNumberURLPaginationParams } from '../pagination';
 
 export class Trips extends APIResource {
   /**
@@ -68,7 +68,7 @@ export interface TripListResponse {
   price?: number;
 }
 
-export interface TripListParams {
+export interface TripListParams extends PageNumberURLPaginationParams {
   /**
    * The date and time of the trip in ISO 8601 format in origin station's timezone.
    */
@@ -93,11 +93,6 @@ export interface TripListParams {
    * Only return trips where dogs are known to be allowed
    */
   dogs?: boolean;
-
-  /**
-   * The page of results to be returned
-   */
-  page?: number;
 }
 
 export namespace Trips {
