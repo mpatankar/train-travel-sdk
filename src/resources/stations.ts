@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as StationsAPI from './stations';
 import { PageNumberURLPagination, type PageNumberURLPaginationParams } from '../pagination';
 
 export class Stations extends APIResource {
@@ -74,8 +73,12 @@ export interface StationListParams extends PageNumberURLPaginationParams {
   search?: string;
 }
 
-export namespace Stations {
-  export import StationListResponse = StationsAPI.StationListResponse;
-  export import StationListResponsesPageNumberURLPagination = StationsAPI.StationListResponsesPageNumberURLPagination;
-  export import StationListParams = StationsAPI.StationListParams;
+Stations.StationListResponsesPageNumberURLPagination = StationListResponsesPageNumberURLPagination;
+
+export declare namespace Stations {
+  export {
+    type StationListResponse as StationListResponse,
+    StationListResponsesPageNumberURLPagination as StationListResponsesPageNumberURLPagination,
+    type StationListParams as StationListParams,
+  };
 }
