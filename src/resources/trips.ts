@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as TripsAPI from './trips';
 import { PageNumberURLPagination, type PageNumberURLPaginationParams } from '../pagination';
 
 export class Trips extends APIResource {
@@ -95,8 +94,12 @@ export interface TripListParams extends PageNumberURLPaginationParams {
   dogs?: boolean;
 }
 
-export namespace Trips {
-  export import TripListResponse = TripsAPI.TripListResponse;
-  export import TripListResponsesPageNumberURLPagination = TripsAPI.TripListResponsesPageNumberURLPagination;
-  export import TripListParams = TripsAPI.TripListParams;
+Trips.TripListResponsesPageNumberURLPagination = TripListResponsesPageNumberURLPagination;
+
+export declare namespace Trips {
+  export {
+    type TripListResponse as TripListResponse,
+    TripListResponsesPageNumberURLPagination as TripListResponsesPageNumberURLPagination,
+    type TripListParams as TripListParams,
+  };
 }
