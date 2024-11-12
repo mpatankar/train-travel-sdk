@@ -183,25 +183,6 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  TrainTravelFrictionAnalysisError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 TrainTravelFrictionAnalysis.Stations = Stations;
 TrainTravelFrictionAnalysis.StationListResponsesPageNumberURLPagination =
   StationListResponsesPageNumberURLPagination;
@@ -211,7 +192,6 @@ TrainTravelFrictionAnalysis.TripListResponsesPageNumberURLPagination =
 TrainTravelFrictionAnalysis.Bookings = Bookings;
 TrainTravelFrictionAnalysis.BookingListResponsesPageNumberURLPagination =
   BookingListResponsesPageNumberURLPagination;
-
 export declare namespace TrainTravelFrictionAnalysis {
   export type RequestOptions = Core.RequestOptions;
 
@@ -246,5 +226,22 @@ export declare namespace TrainTravelFrictionAnalysis {
     type BookingPaymentParams as BookingPaymentParams,
   };
 }
+
+export { toFile, fileFromPath } from 'train-travel-friction-analysis-demo/uploads';
+export {
+  TrainTravelFrictionAnalysisError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from 'train-travel-friction-analysis-demo/error';
 
 export default TrainTravelFrictionAnalysis;
