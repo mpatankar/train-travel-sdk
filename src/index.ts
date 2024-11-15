@@ -227,7 +227,7 @@ export declare namespace TrainTravelFrictionAnalysis {
   };
 }
 
-export { toFile, fileFromPath } from 'train-travel-friction-analysis-demo/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   TrainTravelFrictionAnalysisError,
   APIError,
@@ -242,6 +242,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'train-travel-friction-analysis-demo/error';
+} from './error';
 
 export default TrainTravelFrictionAnalysis;
