@@ -186,7 +186,7 @@ describe('instantiate client', () => {
     expect(client.accessToken).toBe('My Access Token');
   });
 
-  test('with overriden environment variable arguments', () => {
+  test('with overridden environment variable arguments', () => {
     // set options via env var
     process.env['ACCESS_TOKEN'] = 'another My Access Token';
     const client = new TrainTravelFrictionAnalysis({ accessToken: 'My Access Token' });
