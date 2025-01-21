@@ -3,7 +3,6 @@
 import { APIResource } from '../resource';
 import { isRequestOptions } from '../core';
 import * as Core from '../core';
-import * as BookingsAPI from './bookings';
 import { PageNumberURLPagination, type PageNumberURLPaginationParams } from '../pagination';
 
 export class Bookings extends APIResource {
@@ -356,12 +355,16 @@ export namespace BookingPaymentParams {
   }
 }
 
-export namespace Bookings {
-  export import Booking = BookingsAPI.Booking;
-  export import BookingPayment = BookingsAPI.BookingPayment;
-  export import BookingListResponse = BookingsAPI.BookingListResponse;
-  export import BookingListResponsesPageNumberURLPagination = BookingsAPI.BookingListResponsesPageNumberURLPagination;
-  export import BookingCreateParams = BookingsAPI.BookingCreateParams;
-  export import BookingListParams = BookingsAPI.BookingListParams;
-  export import BookingPaymentParams = BookingsAPI.BookingPaymentParams;
+Bookings.BookingListResponsesPageNumberURLPagination = BookingListResponsesPageNumberURLPagination;
+
+export declare namespace Bookings {
+  export {
+    type Booking as Booking,
+    type BookingPayment as BookingPayment,
+    type BookingListResponse as BookingListResponse,
+    BookingListResponsesPageNumberURLPagination as BookingListResponsesPageNumberURLPagination,
+    type BookingCreateParams as BookingCreateParams,
+    type BookingListParams as BookingListParams,
+    type BookingPaymentParams as BookingPaymentParams,
+  };
 }

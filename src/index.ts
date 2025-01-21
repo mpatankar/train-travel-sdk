@@ -1,11 +1,34 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
 import * as Pagination from './pagination';
+import { type PageNumberURLPaginationParams, PageNumberURLPaginationResponse } from './pagination';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import {
+  Booking,
+  BookingCreateParams,
+  BookingListParams,
+  BookingListResponse,
+  BookingListResponsesPageNumberURLPagination,
+  BookingPayment,
+  BookingPaymentParams,
+  Bookings,
+} from './resources/bookings';
+import {
+  StationListParams,
+  StationListResponse,
+  StationListResponsesPageNumberURLPagination,
+  Stations,
+} from './resources/stations';
+import {
+  TripListParams,
+  TripListResponse,
+  TripListResponsesPageNumberURLPagination,
+  Trips,
+} from './resources/trips';
 
 export interface ClientOptions {
   /**
@@ -27,7 +50,7 @@ export interface ClientOptions {
    * Note that request timeouts are retried by default, so in a worst-case scenario you may wait
    * much longer than this timeout before the promise succeeds or fails.
    */
-  timeout?: number;
+  timeout?: number | undefined;
 
   /**
    * An HTTP agent used to manage HTTP(S) connections.
@@ -35,7 +58,7 @@ export interface ClientOptions {
    * If not provided, an agent will be constructed by default in the Node.js environment,
    * otherwise no agent is used.
    */
-  httpAgent?: Agent;
+  httpAgent?: Agent | undefined;
 
   /**
    * Specify a custom `fetch` function implementation.
@@ -51,7 +74,7 @@ export interface ClientOptions {
    *
    * @default 2
    */
-  maxRetries?: number;
+  maxRetries?: number | undefined;
 
   /**
    * Default headers to include with every request to the API.
@@ -59,7 +82,7 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * header to `undefined` or `null` in request options.
    */
-  defaultHeaders?: Core.Headers;
+  defaultHeaders?: Core.Headers | undefined;
 
   /**
    * Default query parameters to include with every request to the API.
@@ -67,7 +90,7 @@ export interface ClientOptions {
    * These can be removed in individual requests by explicitly setting the
    * param to `undefined` in request options.
    */
-  defaultQuery?: Core.DefaultQuery;
+  defaultQuery?: Core.DefaultQuery | undefined;
 }
 
 /**
@@ -160,7 +183,52 @@ export class TrainTravelFrictionAnalysis extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+TrainTravelFrictionAnalysis.Stations = Stations;
+TrainTravelFrictionAnalysis.StationListResponsesPageNumberURLPagination =
+  StationListResponsesPageNumberURLPagination;
+TrainTravelFrictionAnalysis.Trips = Trips;
+TrainTravelFrictionAnalysis.TripListResponsesPageNumberURLPagination =
+  TripListResponsesPageNumberURLPagination;
+TrainTravelFrictionAnalysis.Bookings = Bookings;
+TrainTravelFrictionAnalysis.BookingListResponsesPageNumberURLPagination =
+  BookingListResponsesPageNumberURLPagination;
+export declare namespace TrainTravelFrictionAnalysis {
+  export type RequestOptions = Core.RequestOptions;
+
+  export import PageNumberURLPagination = Pagination.PageNumberURLPagination;
+  export {
+    type PageNumberURLPaginationParams as PageNumberURLPaginationParams,
+    type PageNumberURLPaginationResponse as PageNumberURLPaginationResponse,
+  };
+
+  export {
+    Stations as Stations,
+    type StationListResponse as StationListResponse,
+    StationListResponsesPageNumberURLPagination as StationListResponsesPageNumberURLPagination,
+    type StationListParams as StationListParams,
+  };
+
+  export {
+    Trips as Trips,
+    type TripListResponse as TripListResponse,
+    TripListResponsesPageNumberURLPagination as TripListResponsesPageNumberURLPagination,
+    type TripListParams as TripListParams,
+  };
+
+  export {
+    Bookings as Bookings,
+    type Booking as Booking,
+    type BookingPayment as BookingPayment,
+    type BookingListResponse as BookingListResponse,
+    BookingListResponsesPageNumberURLPagination as BookingListResponsesPageNumberURLPagination,
+    type BookingCreateParams as BookingCreateParams,
+    type BookingListParams as BookingListParams,
+    type BookingPaymentParams as BookingPaymentParams,
+  };
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   TrainTravelFrictionAnalysisError,
   APIError,
   APIConnectionError,
@@ -174,36 +242,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace TrainTravelFrictionAnalysis {
-  export import RequestOptions = Core.RequestOptions;
-
-  export import PageNumberURLPagination = Pagination.PageNumberURLPagination;
-  export import PageNumberURLPaginationParams = Pagination.PageNumberURLPaginationParams;
-  export import PageNumberURLPaginationResponse = Pagination.PageNumberURLPaginationResponse;
-
-  export import Stations = API.Stations;
-  export import StationListResponse = API.StationListResponse;
-  export import StationListResponsesPageNumberURLPagination = API.StationListResponsesPageNumberURLPagination;
-  export import StationListParams = API.StationListParams;
-
-  export import Trips = API.Trips;
-  export import TripListResponse = API.TripListResponse;
-  export import TripListResponsesPageNumberURLPagination = API.TripListResponsesPageNumberURLPagination;
-  export import TripListParams = API.TripListParams;
-
-  export import Bookings = API.Bookings;
-  export import Booking = API.Booking;
-  export import BookingPayment = API.BookingPayment;
-  export import BookingListResponse = API.BookingListResponse;
-  export import BookingListResponsesPageNumberURLPagination = API.BookingListResponsesPageNumberURLPagination;
-  export import BookingCreateParams = API.BookingCreateParams;
-  export import BookingListParams = API.BookingListParams;
-  export import BookingPaymentParams = API.BookingPaymentParams;
-}
+} from './error';
 
 export default TrainTravelFrictionAnalysis;
